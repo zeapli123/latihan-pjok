@@ -1,0 +1,192 @@
+
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <title>Login Google Form</title>
+
+    <!-- Bootstrap 5 -->
+    <link rel="icon" type="image/x-icon" href="assets/sma.jpeg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #4e73df, #1cc88a);
+            height: 100vh;
+        }
+        .card {
+            border-radius: 15px;
+        }
+        .btn-custom {
+            background-color: #4e73df;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #2e59d9;
+        }
+        body {
+background: linear-gradient(135deg, #4e73df, #1cc88a);
+height: 100vh;
+}
+
+.card {
+border-radius: 15px;
+}
+
+.login-title {
+font-weight: bold;
+color: #4e73df;
+}
+
+.btn-custom {
+background-color: #4e73df;
+color: white;
+}
+
+.btn-custom:hover {
+background-color: #2e59d9;
+}
+
+.custom-alert {
+background: linear-gradient(90deg, #ff4d4d, #ff1a1a);
+color: white;
+padding: 10px;
+border-radius: 10px;
+text-align: center;
+font-weight: bold;
+margin-bottom: 15px;
+box-shadow: 0 0 10px rgba(255,0,0,0.5);
+}
+
+@keyframes shake {
+0% { transform: translateX(0); }
+25% { transform: translateX(-8px); }
+50% { transform: translateX(8px); }
+75% { transform: translateX(-8px); }
+100% { transform: translateX(0); }
+}
+
+.animate {
+animation: shake 0.4s;
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center align-items-center vh-100">
+        <div class="col-11 col-sm-8 col-md-6 col-lg-4">
+            <div class="card shadow p-4">
+                <div class="text-center mb-4">
+                    <h3 class="fw-bold text-primary">LOGIN UJIAN PJOK</h3>
+                    <p class="text-muted">Masukkan username & password</p>
+                </div>
+
+                <!-- <div id="alert" class="alert alert-danger d-none"></div> -->
+                <div id="customAlert" class="custom-alert d-none">
+                    ❌ Username atau Password Salah!
+                </div>
+                <form onsubmit="return login()">
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="text" id="username" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" id="password" class="form-control" required>
+                        <!-- <span  onclick="togglePassword()" id="toggleIcon" style=" cursor: pointer;">
+                            <i class="bi bi-eye"></i>
+                        </span> -->
+                                <!-- Icon di dalam input -->
+        <span 
+        onclick="togglePassword()" id="togglePassword" 
+        style="position:absolute;
+        top:73%;
+        right:30px;
+        transform:translateY(-50%);
+        cursor:pointer;
+        z-index:5;">
+<i class="bi bi-eye"></i>
+
+  </span>
+
+                        
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-custom">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function login() {
+    var userBenar = "siswa";
+    var passBenar = "12345";
+
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if (username === userBenar && password === passBenar) {
+        window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSfyCzC_zXkDFjx81DGSxpZVFsiexYBUyBzTp3E79Qqem3dwfw/viewform?usp=sharing&ouid=108471079233408166235";
+        return false;
+    } else {
+        showAlert();
+        return false;
+    }
+}
+
+function showAlert() {
+    const alertBox = document.getElementById("customAlert");
+
+    // Tampilkan alert
+    alertBox.classList.remove("d-none");
+
+    // Setelah 3 detik, sembunyikan kembali
+    setTimeout(function() {
+        alertBox.classList.add("d-none");
+    }, 3000);
+}
+function togglePassword() {
+
+
+    var password = document.getElementById("password");
+    var icon = document.querySelector("#togglePassword i");
+
+    if (password.type === "password") {
+        password.type = "text";
+        icon.classList.remove("bi-eye");
+        icon.classList.add("bi-eye-slash");
+       
+    } else {
+        password.type = "password";
+        icon.classList.remove("bi-eye-slash");
+       icon.classList.add("bi-eye");
+      
+    }
+
+    // var password = document.getElementById("password");
+    // var icon = document.querySelector("#toggleIcon i");
+
+    // if (password.type === "password") {
+    //     password.type = "text";
+    //     icon.classList.remove("bi-eye");
+    //     icon.classList.add("bi-eye-slash");
+    // } else {
+    //     password.type = "password";
+    //     icon.classList.remove("bi-eye-slash");
+    //     icon.classList.add("bi-eye");
+    // }
+}
+</script>
+
+</body>
+</html>
