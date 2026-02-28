@@ -1,1 +1,27 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect Ujian</title>
+</head>
+<body>
+
+<script>
+    // Cek apakah sudah login
+    if (sessionStorage.getItem("login") === "true") {
+
+        // Hapus session agar tidak bisa akses ulang
+        sessionStorage.removeItem("login");
+
+        // Redirect ke Google Form
+        window.location.href = "https://forms.gle/ISI_LINK_GOOGLE_FORM_KAMU";
+
+    } else {
+        // Jika belum login, kembali ke halaman login
+        alert("⚠️ Anda harus login terlebih dahulu!");
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>
