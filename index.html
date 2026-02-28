@@ -136,8 +136,14 @@ function login() {
     var password = document.getElementById("password").value;
 
     if (username === userBenar && password === passBenar) {
-        window.location.href = "https://presenter.jivrus.com/p/1WQ4pt9bEOfZQXmXnONPw92fexlK1sVQtynfJkKlA324";
+
+        // Simpan status login
+        sessionStorage.setItem("login", "true");
+
+        // Masuk ke halaman pengaman
+        window.location.href = "from.html";
         return false;
+
     } else {
         showAlert();
         return false;
@@ -190,6 +196,7 @@ function togglePassword() {
 
 </body>
 </html>
+
 
 
 
